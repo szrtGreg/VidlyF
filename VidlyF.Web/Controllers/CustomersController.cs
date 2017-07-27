@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using VidlyF.Web.Models;
+using VidlyF.Web.ViewModels;
 
 namespace VidlyF.Web.Controllers
 {
@@ -40,6 +41,17 @@ namespace VidlyF.Web.Controllers
             return View(customer);
         }
 
+        // GET: Customers Form
+        public ActionResult Create()
+        {
+            var viewModel = new CustomerFormViewModel
+            {
+                MembershipTypes = _context.MembershipTypes.ToList(),
+                Heading = "Add Customer"
+            };
+
+            return View("CustomerForm", viewModel);
+        }
 
         private IEnumerable<Customer> GetCustomers()
         {

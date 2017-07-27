@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace VidlyF.Web.Models
 {
@@ -11,10 +12,12 @@ namespace VidlyF.Web.Models
         public string Name { get; set; }
 
         public bool IsSubscribedToNewsletter { get; set; }
-
-        [Required]
+    
         public MembershipType MembershipType { get; set; }
 
+        [Required]
         public byte MembershipTypeId { get; set; }
+
+        public DateTime? DateTime { get; set; }
     }
 }
