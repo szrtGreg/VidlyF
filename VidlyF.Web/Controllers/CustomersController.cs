@@ -53,6 +53,31 @@ namespace VidlyF.Web.Controllers
             return View("CustomerForm", viewModel);
         }
 
+        [HttpPost]
+        public ActionResult Create(CustomerFormViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                viewModel.MembershipTypes = _context.MembershipTypes.ToList();
+                return View("CustomerForm", viewModel);
+            }
+
+            var customer = new Customer
+            {
+
+                MembershipTypeId = viewModel.MembershipTypeId,
+                Name = viewModel.Name,
+                DateTime = viewModel.DateTime,
+                IsSubscribedToNewsletter = viewModel.IsSubscribedToNewsletter
+                
+            };
+
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Customers");
+        }
+
         private IEnumerable<Customer> GetCustomers()
         {
             return new List<Customer>
