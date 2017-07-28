@@ -78,6 +78,23 @@ namespace VidlyF.Web.Controllers
             return RedirectToAction("Index", "Customers");
         }
 
+        // GET: Customers Form
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.Single(c => c.Id == id);
+            var viewModel = new CustomerFormViewModel
+            {
+                Id = customer.Id,
+                Heading = "Edit Customer",
+                MembershipTypes = _context.MembershipTypes.ToList(),
+                Name = customer.Name,
+                MembershipTypeId = customer.MembershipTypeId,
+                DateTime = customer.DateTime,
+            };
+
+            return View("CustomerForm", viewModel);
+        }
+
         private IEnumerable<Customer> GetCustomers()
         {
             return new List<Customer>
