@@ -22,6 +22,7 @@ namespace VidlyF.Web.ViewModels
         public byte MembershipTypeId { get; set; }
 
         [Display(Name = "Date of Birth")]
+        [Min18]
         public DateTime? DateTime { get; set; }
 
         public string Heading { get; set; }
