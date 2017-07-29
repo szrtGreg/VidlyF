@@ -97,6 +97,28 @@ namespace VidlyF.Web.Controllers
             return View("MovieForm", viewModel);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Update(MovieFormViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Genres = _context.Genres.ToList();
+                return View("MovieForm", viewModel);
+            }
+
+            var movie = _context.Movies.Single(c => c.Id == viewModel.Id);
+
+            movie.ReleaseDate= (DateTime)viewModel.ReleaseDate;
+            movie.GenreId = viewModel.GenreId;
+            movie.Name = viewModel.Name;
+            movie.NumberInStock = (byte)viewModel.NumberInStock;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Movies");
+        }
+
 
         private IEnumerable<Movie> GetMovies()
         {
