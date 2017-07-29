@@ -54,6 +54,7 @@ namespace VidlyF.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CustomerFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
@@ -96,6 +97,7 @@ namespace VidlyF.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Update(CustomerFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
