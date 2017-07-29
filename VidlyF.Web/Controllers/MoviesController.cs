@@ -79,6 +79,24 @@ namespace VidlyF.Web.Controllers
             return RedirectToAction("Index", "Movies");
         }
 
+        // GET: Customers Form
+        public ActionResult Edit(int id)
+        {
+            var movie = _context.Movies.Single(c => c.Id == id);
+            var viewModel = new MovieFormViewModel
+            {
+                Id = movie.Id,
+                Heading = "Edit Movie",
+                Genres = _context.Genres.ToList(),
+                Name = movie.Name,
+                GenreId = movie.GenreId,
+                ReleaseDate = movie.ReleaseDate,
+                NumberInStock = movie.NumberInStock
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
 
         private IEnumerable<Movie> GetMovies()
         {

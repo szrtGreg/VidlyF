@@ -20,6 +20,7 @@ namespace VidlyF.Web.ViewModels
         public DateTime DateAdded { get; set; }
 
         [Range(1, 20)]
+        [Required]
         [Display(Name = "Mumber in stock")]
         public byte? NumberInStock { get; set; }
 
