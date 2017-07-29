@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using VidlyF.Web.Models;
 
+
 namespace VidlyF.Web.ViewModels
 {
     public class Min18 : ValidationAttribute
