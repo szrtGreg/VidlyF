@@ -95,6 +95,27 @@ namespace VidlyF.Web.Controllers
             return View("CustomerForm", viewModel);
         }
 
+        [HttpPost]
+        public ActionResult Update(CustomerFormViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                viewModel.MembershipTypes = _context.MembershipTypes.ToList();
+                return View("CustomerForm", viewModel);
+            }
+
+            var customer = _context.Customers.Single(c => c.Id == viewModel.Id);
+
+            customer.DateTime = viewModel.DateTime;
+            customer.MembershipTypeId = viewModel.MembershipTypeId;
+            customer.Name = viewModel.Name;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Customers");
+        }
+
+
         private IEnumerable<Customer> GetCustomers()
         {
             return new List<Customer>
