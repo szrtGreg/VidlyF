@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201707271910024_addingDateTimeToCustomers.Designer.cs">
       <DependentUpon>201707271910024_addingDateTimeToCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707291118572_updateMovieModel.cs" />
+    <Compile Include="Migrations\201707291118572_updateMovieModel.Designer.cs">
+      <DependentUpon>201707291118572_updateMovieModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -211,6 +215,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\Min18.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -272,6 +277,7 @@
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707271910024_addingDateTimeToCustomers.resx">
       <DependentUpon>201707271910024_addingDateTimeToCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707291118572_updateMovieModel.resx">
+      <DependentUpon>201707291118572_updateMovieModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
