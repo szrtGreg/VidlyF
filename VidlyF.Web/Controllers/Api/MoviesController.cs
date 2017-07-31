@@ -18,14 +18,14 @@ namespace VidlyF.Web.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
-        //GET /api/movies
+        // GET /api/movies
         public IEnumerable<MovieDto> GetMovies()
         {
             return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
         }
 
-        //GET /api/customers/1
-        public  IHttpActionResult GetMovies(int id)
+        // GET /api/movies/1
+        public  IHttpActionResult GetMovie(int id)
         {
             var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
 
@@ -35,7 +35,7 @@ namespace VidlyF.Web.Controllers.Api
             return Ok(Mapper.Map<Movie, MovieDto>(movie));
         }
 
-        //POST /api/movies
+        // POST /api/movies
         [HttpPost]
         public IHttpActionResult CreateMovie(MovieDto movieDto)
         {
@@ -52,7 +52,7 @@ namespace VidlyF.Web.Controllers.Api
 
         }
 
-        //PUT /api/customers/1
+        // PUT /api/movies/1
         [HttpPut]
         public IHttpActionResult UpdateMovie(int id, MovieDto movieDto)
         {
@@ -70,8 +70,9 @@ namespace VidlyF.Web.Controllers.Api
             return Ok();
         }
 
+        // DELETE /api/movies/1
         [HttpDelete]
-        public IHttpActionResult DeleteMovies(int id)
+        public IHttpActionResult DeleteMovie(int id)
         {
             var movieInDb = _context.Movies.SingleOrDefault(c => c.Id == id);
 
