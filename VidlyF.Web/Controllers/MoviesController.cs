@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -120,13 +119,13 @@ namespace VidlyF.Web.Controllers
         }
 
 
-        private IEnumerable<Movie> GetMovies()
-        {
-            return new List<Movie>
-            {
-              new Movie { Id = 1, Name = "Movie1" },
-              new Movie { Id = 2, Name = "Movie2" }
-            };
-        }
+        //private IEnumerable<Movie> GetMovies()
+        //{
+        //    return new List<Movie>
+        //    {
+        //      new Movie { Id = 1, Name = "Movie1" },
+        //      new Movie { Id = 2, Name = "Movie2" }
+        //    };
+        //}
     }
 }

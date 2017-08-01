@@ -34,7 +34,6 @@ namespace VidlyF.Web.Controllers
         {
             var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
 
-
             if (customer == null)
                 return HttpNotFound();
 
